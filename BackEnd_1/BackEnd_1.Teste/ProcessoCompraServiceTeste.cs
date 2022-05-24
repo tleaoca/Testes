@@ -17,12 +17,15 @@ namespace BackEnd_1.Teste
             provedorServico = inicializar.ProvedorServico;
         }
 
+
+
+
         [Fact]
         public async Task DeveCalcularParcelasSemJuros()
         {
             using (var servico = provedorServico.GetService<IProcessoCompraService>())
             {
-                Compra compra = new Compra(new Produto(), new CondicaoPagamento());
+                Compra compra = new Compra { Produto = new Produto(), CondicaoPagamento = new CondicaoPagamento() };
 
 
                 compra.Produto.Valor = 50000;
@@ -40,7 +43,7 @@ namespace BackEnd_1.Teste
         {
             using (var servico = provedorServico.GetService<IProcessoCompraService>())
             {
-                Compra compra = new Compra(new Produto(), new CondicaoPagamento());
+                Compra compra = new Compra { Produto = new Produto(), CondicaoPagamento = new CondicaoPagamento() };
 
 
                 compra.Produto.Valor = 50000;
